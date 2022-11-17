@@ -26,5 +26,29 @@ namespace BANK_APP_XAML_
         {
             this.InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            int number = 15;
+            number = number + 10;
+            number = 36 * 15;
+            number = 12 - (42 / 7);
+            number += 10;
+            number *= 3;
+            number = 71 / 3;
+
+            int count = 0;
+            count++;
+            count--;
+
+            string result = "witam";
+            result += "ponownie " + result;
+            output.Text = result;
+            result = "wartością jest: " + count;
+
+            bool yesNo = false;
+            bool anotherBool = true;
+            yesNo = !anotherBool;
+        }
     }
 }
