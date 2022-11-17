@@ -16,5 +16,27 @@ namespace CheckBox_Classic_
         {
             InitializeComponent();
         }
+
+        private void changeText_Click(object sender, EventArgs e)
+        {
+            if (enableCheckbox.Checked == true)
+            {
+                if (labelToChange.Text == "Z prawej")
+                {
+                    labelToChange.Text = "Z lewej";
+                    labelToChange.TextAlign = ContentAlignment.MiddleLeft;
+                }
+                else
+                {
+                    labelToChange.Text = "Z prawej";
+                    labelToChange.TextAlign = ContentAlignment.MiddleRight;
+                }
+            }
+            else
+            {
+                labelToChange.Text = "Możliwość zmiany teksty została wyłączona";
+                labelToChange.TextAlign = ContentAlignment.MiddleCenter;
+            }
+        }
     }
 }
