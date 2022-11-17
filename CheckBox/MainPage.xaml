@@ -5,10 +5,25 @@
     xmlns:local="using:CheckBox"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
-    <Grid>
-
+    mc:Ignorable="d">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="changeText" Content="Kliknięcie zmienia etykietę"
+                HorizontalAlignment="Center" Click="changeText_Click"
+                FontSize="25"/>
+        <CheckBox x:Name="enableCheckbox" Content="Włącza zmianę etykiety"
+                  HorizontalAlignment="Center" IsChecked="True" Grid.Column="1"
+                  FontSize="25"/>
+        <TextBlock x:Name="labelToChange" Grid.Row="1" TextWrapping="Wrap"
+                   Text="Naciśnij przycisk, aby zmienić tekst"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Grid.ColumnSpan="2" FontSize="50"/>
     </Grid>
 </Page>

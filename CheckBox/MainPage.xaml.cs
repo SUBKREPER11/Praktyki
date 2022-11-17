@@ -26,5 +26,27 @@ namespace CheckBox
         {
             this.InitializeComponent();
         }
+
+        private void changeText_Click(object sender, RoutedEventArgs e)
+        {
+            if (enableCheckbox.IsChecked == true)
+            {
+                if (labelToChange.Text == "Z prawej")
+                {
+                    labelToChange.Text = "Z lewej";
+                    labelToChange.HorizontalAlignment = HorizontalAlignment.Left;
+                }
+                else
+                {
+                    labelToChange.Text = "Z prawej";
+                    labelToChange.HorizontalAlignment = HorizontalAlignment.Right;
+                }
+            }
+            else
+            {
+                labelToChange.Text = "Możliwość zmiany tekstu została wyłączona";
+                labelToChange.HorizontalAlignment = HorizontalAlignment.Center;
+            }
+        }
     }
 }
