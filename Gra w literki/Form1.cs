@@ -34,8 +34,26 @@ namespace Gra_w_literki
         {
             if (listBox1.Items.Contains(e.KeyCode))
             {
-
+                listBox1.Items.Remove(e.KeyCode);
+                listBox1.Refresh();
+                if (timer1.Interval > 400)
+                    timer1.Interval -= 10;
+                if (timer1.Interval > 250)
+                    timer1.Interval -= 7;
+                if (timer1.Interval > 100)
+                    timer1.Interval -= 2;
+                difficultyProgressBar.Value = 800 - timer1.Interval;
+                stats.Update(true);
             }
+            else
+            {
+                stats.Update(false);
+            }
+
+            correctLabel.Text = "Prawidłowych: " + stats.Correct;
+            missedLabel.Text = "Błędów: " + stats.Missed;
+            totalLabel.Text = "Wszystkich: " + stats.Total;
+            accuracyLabel.Text = "Dokładność: " + stats.Accuracy + "%";
         }
     }
     class Stats

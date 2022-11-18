@@ -56,6 +56,7 @@ namespace Gra_w_literki
             // 
             // timer1
             // 
+            this.timer1.Enabled = true;
             this.timer1.Interval = 800;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
@@ -109,6 +110,7 @@ namespace Gra_w_literki
             // 
             // difficultyProgressBar
             // 
+            this.difficultyProgressBar.Maximum = 701;
             this.difficultyProgressBar.Name = "difficultyProgressBar";
             this.difficultyProgressBar.Size = new System.Drawing.Size(100, 16);
             // 
@@ -119,6 +121,7 @@ namespace Gra_w_literki
             this.ClientSize = new System.Drawing.Size(860, 135);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.listBox1);
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
