@@ -1,0 +1,27 @@
+﻿<Page
+    x:Class="LOOP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LOOP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="Button1" Content="Pokaż komunikat" Margin="0,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="25" Click="Button1_Click"/>
+        <Button x:Name="Button2" Content="If/Else" Grid.Column="1" Margin="0,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="25" Click="Button2_Click"/>
+        <Button x:Name="Button3" Content="Sprawdzanie kolejnego warunku" Margin="0,50,0,0" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="25" Click="Button3_Click"/>
+        <Button x:Name="Button4" Content="Pętla" Grid.Column="1" Margin="0,50,0,0" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="25" Click="Button4_Click"/>
+        <TextBlock x:Name="myLabel" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource BodyTextBlockStyle}" FontSize="50"/>
+    </Grid>
+</Page>
