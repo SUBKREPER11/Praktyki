@@ -95,6 +95,14 @@ namespace Talie
         public void Shuffle()
         {
             //Tasowanie kart
+            List<Card> NewCards = new List<Card>();
+            while (cards.Count > 0)
+            {
+                int CardToMove = random.Next(cards.Count);
+                NewCards.Add(cards[CardToMove]);
+                cards.RemoveAt(CardToMove);
+            }
+            cards = NewCards; 
         }
         public IEnumerable<string> GetCardNames()
         {
