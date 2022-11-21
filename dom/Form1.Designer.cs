@@ -127,7 +127,7 @@ namespace dom
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
-            this.Text = "Zbadaj dom";
+            this.Text = "Zabawa w chowanego";
             this.ResumeLayout(false);
             this.PerformLayout();
 
