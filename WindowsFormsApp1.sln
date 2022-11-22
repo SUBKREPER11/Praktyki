@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karty", "Karty\Karty.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Talie", "Talie\Talie.csproj", "{A485669E-3CC0-40CB-9E02-CCFA5D186A0C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ryby (gra karciana)", "Ryby (gra karciana)\Ryby (gra karciana).csproj", "{A8E92750-CA7E-4AED-A613-403A46B5B325}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -205,6 +207,26 @@ Global
 		{A485669E-3CC0-40CB-9E02-CCFA5D186A0C}.Release|x64.Build.0 = Release|Any CPU
 		{A485669E-3CC0-40CB-9E02-CCFA5D186A0C}.Release|x86.ActiveCfg = Release|Any CPU
 		{A485669E-3CC0-40CB-9E02-CCFA5D186A0C}.Release|x86.Build.0 = Release|Any CPU
+		{A8E92750-CA7E-4AED-A613-403A46B5B325}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8E92750-CA7E-4AED-A613-403A46B5B325}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8E92750-CA7E-4AED-A613-403A46B5B325}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{A8E92750-CA7E-4AED-A613-403A46B5B325}.Debug|ARM.Build.0 = Debug|Any CPU
+		{A8E92750-CA7E-4AED-A613-403A46B5B325}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{A8E92750-CA7E-4AED-A613-403A46B5B325}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{A8E92750-CA7E-4AED-A613-403A46B5B325}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A8E92750-CA7E-4AED-A613-403A46B5B325}.Debug|x64.Build.0 = Debug|Any CPU
+		{A8E92750-CA7E-4AED-A613-403A46B5B325}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A8E92750-CA7E-4AED-A613-403A46B5B325}.Debug|x86.Build.0 = Debug|Any CPU
+		{A8E92750-CA7E-4AED-A613-403A46B5B325}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8E92750-CA7E-4AED-A613-403A46B5B325}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8E92750-CA7E-4AED-A613-403A46B5B325}.Release|ARM.ActiveCfg = Release|Any CPU
+		{A8E92750-CA7E-4AED-A613-403A46B5B325}.Release|ARM.Build.0 = Release|Any CPU
+		{A8E92750-CA7E-4AED-A613-403A46B5B325}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{A8E92750-CA7E-4AED-A613-403A46B5B325}.Release|ARM64.Build.0 = Release|Any CPU
+		{A8E92750-CA7E-4AED-A613-403A46B5B325}.Release|x64.ActiveCfg = Release|Any CPU
+		{A8E92750-CA7E-4AED-A613-403A46B5B325}.Release|x64.Build.0 = Release|Any CPU
+		{A8E92750-CA7E-4AED-A613-403A46B5B325}.Release|x86.ActiveCfg = Release|Any CPU
+		{A8E92750-CA7E-4AED-A613-403A46B5B325}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
