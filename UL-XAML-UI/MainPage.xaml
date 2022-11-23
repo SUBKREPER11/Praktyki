@@ -1,0 +1,49 @@
+﻿<Page
+    x:Class="UL_XAML_UI.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UL_XAML_UI"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource SystemAccentColorDark2}">
+
+    <Grid>
+        <StackPanel Grid.Row="1" Margin="120,0">
+            <TextBlock Text="Przydział prac robotnicą"
+                       Style="{StaticResource HeaderTextBlockStyle}"/>
+            <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                <StackPanel Margin="0,0,20,0">
+                    <TextBlock Text="Zadanie robotnicy" Margin="0,0,0,10"
+                               Style="{StaticResource BodyTextBlockStyle}"/>
+                    <ComboBox SelectedIndex="0">
+                        <ComboBoxItem Content="Nauczanie pszczółek"/>
+                        <ComboBoxItem Content="Pielęgnacja jaj"/>
+                        <ComboBoxItem Content="Utrzymywanie ula"/>
+                        <ComboBoxItem Content="Wytwarzanie miodu"/>
+                        <ComboBoxItem Content="Zbieranie nektaru"/>
+                        <ComboBoxItem Content="Patrol z żądłami"/>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="Shifts" Margin="0,0,0,10"
+                               Style="{StaticResource BodyTextBlockStyle}"/>
+                    <TextBox/>
+                </StackPanel>
+                <Button Content="Przypisz to zadanie robotnicy" Margin="20,20,0,0"
+                        Style="{StaticResource TextBlockButtonStyle}"/>
+            </StackPanel>
+            <Button Content="Przepracuj następną zmianę" Margin="0,20,0,0"/>
+            <TextBlock Text="Raport ze zmiany" Margin="0,40,0,20"
+                       Style="{StaticResource HeaderTextBlockStyle}"/>
+            <ScrollViewer BorderThickness="2" BorderBrush="White" Height="250"
+                          Content="
+                          Raport zmiany numer 20&#13;
+                          Robotnica numer 1 robi 'Zbieranie nektaru' jeszcze przez 2 zmiany &#13;
+                          Robotnica numer 2 zakończyła swoje zadanie &#13;
+                          Robotnica numer 3 robi 'Patrol z żądłami' jeszcze przez 3 zmiany&#13;
+                          Robotnica numer 4  robi 'Nauczanie pszczółek' jeszcze przez 4 zmiany&#13;
+                          "/>
+        </StackPanel>
+    </Grid>
+</Page>
