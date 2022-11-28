@@ -21,7 +21,7 @@ namespace zdarzenia_trasowane_xaml
     /// <summary>
     /// Pusta strona, która może być używana samodzielnie lub do której można nawigować wewnątrz ramki.
     /// </summary>
-    public sealed partial class MainPage : RoutedEvents.Common.LayoutAwarePage
+    public sealed partial class MainPage : Page
     {
         ObservableCollection<string> outputItems = new ObservableCollection<string>();
         public MainPage()
