@@ -41,6 +41,12 @@ namespace menedzer_plac
             this.payCheck = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.workerNameT = new System.Windows.Forms.TextBox();
+            this.accNumT = new System.Windows.Forms.TextBox();
+            this.plcT = new System.Windows.Forms.TextBox();
+            this.wrkStrtDatT = new System.Windows.Forms.TextBox();
+            this.bonT = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -79,6 +85,12 @@ namespace menedzer_plac
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.bonT);
+            this.groupBox2.Controls.Add(this.wrkStrtDatT);
+            this.groupBox2.Controls.Add(this.plcT);
+            this.groupBox2.Controls.Add(this.accNumT);
+            this.groupBox2.Controls.Add(this.workerNameT);
             this.groupBox2.Controls.Add(this.payCheck);
             this.groupBox2.Controls.Add(this.bon);
             this.groupBox2.Controls.Add(this.wrkStrtDat);
@@ -87,7 +99,7 @@ namespace menedzer_plac
             this.groupBox2.Controls.Add(this.workerName);
             this.groupBox2.Location = new System.Drawing.Point(150, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(366, 230);
+            this.groupBox2.Size = new System.Drawing.Size(232, 271);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Dane pracownika";
@@ -146,7 +158,7 @@ namespace menedzer_plac
             // 
             this.payCheck.AutoSize = true;
             this.payCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.payCheck.Location = new System.Drawing.Point(6, 201);
+            this.payCheck.Location = new System.Drawing.Point(6, 173);
             this.payCheck.Name = "payCheck";
             this.payCheck.Size = new System.Drawing.Size(84, 20);
             this.payCheck.TabIndex = 5;
@@ -169,15 +181,64 @@ namespace menedzer_plac
             this.label1.TabIndex = 8;
             this.label1.Text = "Wyszukaj pracownika:";
             // 
+            // workerNameT
+            // 
+            this.workerNameT.Enabled = false;
+            this.workerNameT.Location = new System.Drawing.Point(126, 16);
+            this.workerNameT.Name = "workerNameT";
+            this.workerNameT.Size = new System.Drawing.Size(100, 20);
+            this.workerNameT.TabIndex = 6;
+            // 
+            // accNumT
+            // 
+            this.accNumT.Location = new System.Drawing.Point(126, 39);
+            this.accNumT.Name = "accNumT";
+            this.accNumT.Size = new System.Drawing.Size(100, 20);
+            this.accNumT.TabIndex = 7;
+            // 
+            // plcT
+            // 
+            this.plcT.Location = new System.Drawing.Point(126, 62);
+            this.plcT.Name = "plcT";
+            this.plcT.Size = new System.Drawing.Size(100, 20);
+            this.plcT.TabIndex = 8;
+            // 
+            // wrkStrtDatT
+            // 
+            this.wrkStrtDatT.Location = new System.Drawing.Point(126, 85);
+            this.wrkStrtDatT.Name = "wrkStrtDatT";
+            this.wrkStrtDatT.Size = new System.Drawing.Size(100, 20);
+            this.wrkStrtDatT.TabIndex = 9;
+            // 
+            // bonT
+            // 
+            this.bonT.Location = new System.Drawing.Point(126, 108);
+            this.bonT.Name = "bonT";
+            this.bonT.Size = new System.Drawing.Size(100, 20);
+            this.bonT.TabIndex = 10;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(6, 242);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(220, 23);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Zapisz zmiany";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(394, 290);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "menedżer płac";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -200,6 +261,12 @@ namespace menedzer_plac
         private System.Windows.Forms.Label payCheck;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox bonT;
+        private System.Windows.Forms.TextBox wrkStrtDatT;
+        private System.Windows.Forms.TextBox plcT;
+        private System.Windows.Forms.TextBox accNumT;
+        private System.Windows.Forms.TextBox workerNameT;
+        private System.Windows.Forms.Button button1;
     }
 }
 

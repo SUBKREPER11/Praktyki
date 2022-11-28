@@ -17,6 +17,7 @@ namespace menedzer_plac
         {
             InitializeComponent();
         }
+        //TextBox workerNameT, accNumT, plcT, wrkStrtDatT, bonT;
         DateTime zeroTime = new DateTime(1, 1, 1);
         DateTime currDate = DateTime.Now;
         private void button1_Click(object sender, EventArgs e)
@@ -58,8 +59,8 @@ namespace menedzer_plac
                         string[] nameParts = parts[0].Split(":".ToCharArray());
                         if (nameParts.Length == 2)
                         {
-                                //player.Text = nameParts[1].Trim();
-                                workersList.Items.Add(nameParts[1].Trim());
+                            //player.Text = nameParts[1].Trim();
+                            workersList.Items.Add(nameParts[1].Trim());
                         }
                     }
                 }
@@ -79,27 +80,27 @@ namespace menedzer_plac
                 string[] wrkNam = parts[0].Split(":".ToCharArray());
                 if (wrkNam.Length == 2)
                 {
-                        workerName.Text = "Imie pracownika: " + wrkNam[1].Trim();
+                    workerNameT.Text = "" + wrkNam[1].Trim();
                 }
                 string[] acNum = parts[1].Split(":".ToCharArray());
-                if(acNum.Length == 2)
+                if (acNum.Length == 2)
                 {
-                    accNum.Text = "Numer konta: " + acNum[1].Trim();
+                    accNumT.Text = "" + acNum[1].Trim();
                 }
                 string[] stan = parts[2].Split(":".ToCharArray());
-                if(stan.Length == 2)
+                if (stan.Length == 2)
                 {
-                    plc.Text = "Stanowisko: " + stan[1].Trim();
+                    plcT.Text = "" + stan[1].Trim();
                 }
                 string[] wrkStrt = parts[3].Split(":".ToCharArray());
                 if (wrkStrt.Length == 2)
                 {
-                    wrkStrtDat.Text = "Data zatrudnienia: " + wrkStrt[1].Trim();
+                    wrkStrtDatT.Text = "" + wrkStrt[1].Trim();
                 }
                 string[] bns = parts[4].Split(":".ToCharArray());
                 if (bns.Length == 2)
                 {
-                    bon.Text = "Bonus: " + bns[1].Trim() + "$";
+                    bonT.Text = "" + bns[1].Trim() + "";
                 }
 
                 DateTime strtDate = Convert.ToDateTime(wrkStrt[1].Trim());
@@ -121,6 +122,7 @@ namespace menedzer_plac
                 int wyplata = (yrs * 100) + int.Parse(bns[1].Trim()) + stVal;
                 //MessageBox.Show("Wypłata: " + wyplata.ToString() + "$"); 
                 payCheck.Text = "Wypłata: " + wyplata.ToString() + "$";
+
             }
         }
 
@@ -135,7 +137,34 @@ namespace menedzer_plac
             else
                 //MessageBox.Show("NIE OK " + i.ToString());
                 MessageBox.Show("Nie znaleziono osoby o nazwie: " + textBox1.Text);
-            // workersList.SelectedIndex = i;
+        }
+
+        static void lineChanger(string newText, string fileName, int line_to_edit)
+        {
+            string[] arrLine = File.ReadAllLines(fileName);
+            arrLine[line_to_edit - 1] = newText;
+            File.WriteAllLines(fileName, arrLine);
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            //player1.URL = Convert.ToString(workersList.SelectedItem);
+            string filePath = Properties.Settings.Default.fullPath;
+            string[] lines = File.ReadAllLines(filePath);
+            int index = workersList.SelectedIndex;
+            //MessageBox.Show(index.ToString());
+            string[] parts = lines[index].Split(",".ToCharArray());
+            if (parts.Length == 5)
+            {
+                string[] wrkNam = parts[0].Split(":".ToCharArray());
+                string[] acNum = parts[1].Split(":".ToCharArray());
+                string[] stan = parts[2].Split(":".ToCharArray());
+                string[] wrkStrt = parts[3].Split(":".ToCharArray());
+                string[] bns = parts[4].Split(":".ToCharArray());
+
+                lineChanger("imie: " + workerNameT.Text + ", numer_konta: " + accNumT.Text + ", stanowisko: " +
+                plcT.Text + ", data_dołączenia: " + wrkStrtDatT.Text + ", Bonus: " + bonT.Text, filePath, index + 1);
+            }
         }
     }
 }
