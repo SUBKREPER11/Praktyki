@@ -68,6 +68,7 @@ namespace menedzer_plac
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //player1.URL = Convert.ToString(workersList.SelectedItem);
             string filePath = Properties.Settings.Default.fullPath;
             string[] lines = File.ReadAllLines(filePath);
             int index = workersList.SelectedIndex;
@@ -121,6 +122,20 @@ namespace menedzer_plac
                 //MessageBox.Show("Wypłata: " + wyplata.ToString() + "$"); 
                 payCheck.Text = "Wypłata: " + wyplata.ToString() + "$";
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            int i = workersList.FindString(textBox1.Text);
+            string filePath = Properties.Settings.Default.fullPath;
+            string[] lines = File.ReadAllLines(filePath);
+            if (i <= lines.Length && i > -1)
+                workersList.SelectedIndex = i;
+            //MessageBox.Show("OK " + i.ToString());
+            else
+                //MessageBox.Show("NIE OK " + i.ToString());
+                MessageBox.Show("Nie znaleziono osoby o nazwie: " + textBox1.Text);
+            // workersList.SelectedIndex = i;
         }
     }
 }

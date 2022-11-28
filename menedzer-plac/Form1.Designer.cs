@@ -39,6 +39,8 @@ namespace menedzer_plac
             this.wrkStrtDat = new System.Windows.Forms.Label();
             this.bon = new System.Windows.Forms.Label();
             this.payCheck = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -47,16 +49,16 @@ namespace menedzer_plac
             // 
             this.openWorkersListFile.Location = new System.Drawing.Point(6, 19);
             this.openWorkersListFile.Name = "openWorkersListFile";
-            this.openWorkersListFile.Size = new System.Drawing.Size(75, 23);
+            this.openWorkersListFile.Size = new System.Drawing.Size(120, 23);
             this.openWorkersListFile.TabIndex = 0;
-            this.openWorkersListFile.Text = "Open";
+            this.openWorkersListFile.Text = "Otwórz plik listy";
             this.openWorkersListFile.UseVisualStyleBackColor = true;
             this.openWorkersListFile.Click += new System.EventHandler(this.button1_Click);
             // 
             // workersList
             // 
             this.workersList.FormattingEnabled = true;
-            this.workersList.Location = new System.Drawing.Point(6, 48);
+            this.workersList.Location = new System.Drawing.Point(6, 92);
             this.workersList.Name = "workersList";
             this.workersList.Size = new System.Drawing.Size(120, 173);
             this.workersList.TabIndex = 6;
@@ -64,11 +66,13 @@ namespace menedzer_plac
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.workersList);
             this.groupBox1.Controls.Add(this.openWorkersListFile);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(132, 230);
+            this.groupBox1.Size = new System.Drawing.Size(132, 271);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pracownicy";
@@ -148,6 +152,23 @@ namespace menedzer_plac
             this.payCheck.TabIndex = 5;
             this.payCheck.Text = "Wypłata: ";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(6, 66);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(120, 20);
+            this.textBox1.TabIndex = 7;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 50);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(114, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Wyszukaj pracownika:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -158,6 +179,7 @@ namespace menedzer_plac
             this.Name = "Form1";
             this.Text = "Form1";
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
@@ -176,6 +198,8 @@ namespace menedzer_plac
         private System.Windows.Forms.Label wrkStrtDat;
         private System.Windows.Forms.Label bon;
         private System.Windows.Forms.Label payCheck;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
