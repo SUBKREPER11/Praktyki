@@ -30,13 +30,16 @@ namespace menedzer_plac
                 workerNameT.Enabled = true;
                 accNumT.Enabled = true;
                 plcT.Enabled = true;
-                wrkStrtDatT.Enabled = true;
+                //wrkStrtDatT.Enabled = true;
                 bonT.Enabled = true;
                 button1.Enabled = true;
                 button2.Enabled = true;
+                dateTimePicker1.Enabled = true;
             }
-            workersList.Items.Clear();
+            //workersList.Items.Clear();
             string filePath = Properties.Settings.Default.fullPath;
+            if(File.ReadAllLines(filePath).Length < 1)
+                File.AppendAllText(filePath, "I; I, N; 1, S; St1, D; 01.01.2000, B; 1");
             string[] lines = File.ReadAllLines(filePath);
             //Array.Resize(ref lines, lines.Length + 1);
             for (int i = 0; i < lines.Length; i++)
@@ -46,10 +49,9 @@ namespace menedzer_plac
                     string[] parts = lines[i].Split(",".ToCharArray());
                     if (parts.Length == 5)
                     {
-                        string[] nameParts = parts[0].Split(":".ToCharArray());
+                        string[] nameParts = parts[0].Split(";".ToCharArray());
                         if (nameParts.Length == 2)
                         {
-                            //player.Text = nameParts[1].Trim();
                             workersList.Items.Add(nameParts[1].Trim());
                         }
                     }
@@ -63,31 +65,39 @@ namespace menedzer_plac
             string filePath = Properties.Settings.Default.fullPath;
             string[] lines = File.ReadAllLines(filePath);
             int index = workersList.SelectedIndex;
+            int var;
+            if (index < 0)
+                var = 0;
+            else
+                var = index;
             //MessageBox.Show(index.ToString());
-            string[] parts = lines[index].Split(",".ToCharArray());
+            string[] parts = lines[var].Split(",".ToCharArray());
             if (parts.Length == 5)
             {
-                string[] wrkNam = parts[0].Split(":".ToCharArray());
+                string[] wrkNam = parts[0].Split(";".ToCharArray());
                 if (wrkNam.Length == 2)
                 {
                     workerNameT.Text = "" + wrkNam[1].Trim();
                 }
-                string[] acNum = parts[1].Split(":".ToCharArray());
+                string[] acNum = parts[1].Split(";".ToCharArray());
                 if (acNum.Length == 2)
                 {
                     accNumT.Text = "" + acNum[1].Trim();
                 }
-                string[] stan = parts[2].Split(":".ToCharArray());
+                string[] stan = parts[2].Split(";".ToCharArray());
                 if (stan.Length == 2)
                 {
                     plcT.Text = "" + stan[1].Trim();
                 }
-                string[] wrkStrt = parts[3].Split(":".ToCharArray());
+                string[] wrkStrt = parts[3].Split(";".ToCharArray());
                 if (wrkStrt.Length == 2)
                 {
-                    wrkStrtDatT.Text = "" + wrkStrt[1].Trim();
+                    //dateTimePicker1.CustomFormat = "dd/MM/yyyy";
+                    //wrkStrtDatT.Text = "" + wrkStrt[1].Trim();
+                    //dateTimePicker1.Format = DateTimePickerFormat.Custom;
+                    dateTimePicker1.Value = Convert.ToDateTime(wrkStrt[1].Trim());
                 }
-                string[] bns = parts[4].Split(":".ToCharArray());
+                string[] bns = parts[4].Split(";".ToCharArray());
                 if (bns.Length == 2)
                 {
                     bonT.Text = "" + bns[1].Trim() + "";
@@ -134,21 +144,12 @@ namespace menedzer_plac
             string[] arrLine = File.ReadAllLines(fileName);
             arrLine[line_to_edit - 1] = newText;
             File.WriteAllLines(fileName, arrLine);
-            //string[] txt = new string[1];
-            //txt[1] = "txt";
-            //string[] ar2 = File.AppendAllLines(fileName, txt);
-            //File.AppendAllLines(fileName,ar2);
-            //File.AppendAllText(fileName, "TEXT" + Environment.NewLine);
         }
         static void userAdder(string newText, string fileName, int line_to_edit)
         {
             string[] arrLine = File.ReadAllLines(fileName);
             arrLine[line_to_edit - 1] = newText;
             File.WriteAllLines(fileName, arrLine);
-            //string[] txt = new string[1];
-            //txt[1] = "txt";
-            //string[] ar2 = File.AppendAllLines(fileName, txt);
-            //File.AppendAllLines(fileName,ar2);
             File.AppendAllText(fileName, "End" + Environment.NewLine);
         }
 
@@ -158,17 +159,22 @@ namespace menedzer_plac
             string filePath = Properties.Settings.Default.fullPath;
             string[] lines = File.ReadAllLines(filePath);
             int index = workersList.SelectedIndex;
+            int var;
+            if (index < 0)
+                var = 0;
+            else
+                var = index;
             //MessageBox.Show(index.ToString());
-            string[] parts = lines[index].Split(",".ToCharArray());
+            string[] parts = lines[var].Split(",".ToCharArray());
             if (parts.Length == 5)
             {
-                string[] wrkNam = parts[0].Split(":".ToCharArray());
-                string[] acNum = parts[1].Split(":".ToCharArray());
-                string[] stan = parts[2].Split(":".ToCharArray());
-                string[] wrkStrt = parts[3].Split(":".ToCharArray());
-                string[] bns = parts[4].Split(":".ToCharArray());
-                lineChanger("I: " + workerNameT.Text + ", N: " + accNumT.Text + ", S: " +
-                plcT.Text + ", D: " + wrkStrtDatT.Text + ", B: " + bonT.Text, filePath, index + 1);
+                string[] wrkNam = parts[0].Split(";".ToCharArray());
+                string[] acNum = parts[1].Split(";".ToCharArray());
+                string[] stan = parts[2].Split(";".ToCharArray());
+                string[] wrkStrt = parts[3].Split(";".ToCharArray());
+                string[] bns = parts[4].Split(";".ToCharArray());
+                lineChanger("I; " + workerNameT.Text + ", N; " + accNumT.Text + ", S; " +
+                plcT.Text + ", D; " + dateTimePicker1.Value + ", B; " + bonT.Text, filePath, index + 1);
             }
         }
 
@@ -180,17 +186,23 @@ namespace menedzer_plac
             int index = workersList.SelectedIndex;
             //MessageBox.Show(index.ToString());
             //workersList.SelectedIndex = index;
-            string[] parts = lines[index].Split(",".ToCharArray());
+            MessageBox.Show(lines.GetUpperBound(0).ToString());
+            int var;
+            if (index < 0)
+                var = 0;
+            else
+                var = index;
+            string[] parts = lines[var].Split(",".ToCharArray());
             if (parts.Length == 5)
             {
-                string[] wrkNam = parts[0].Split(":".ToCharArray());
-                string[] acNum = parts[1].Split(":".ToCharArray());
-                string[] stan = parts[2].Split(":".ToCharArray());
-                string[] wrkStrt = parts[3].Split(":".ToCharArray());
-                string[] bns = parts[4].Split(":".ToCharArray());
+                string[] wrkNam = parts[0].Split(";".ToCharArray());
+                string[] acNum = parts[1].Split(";".ToCharArray());
+                string[] stan = parts[2].Split(";".ToCharArray());
+                string[] wrkStrt = parts[3].Split(";".ToCharArray());
+                string[] bns = parts[4].Split(";".ToCharArray());
 
-                userAdder("I: " + workerNameT.Text + ", N: " + accNumT.Text + ", S: " +
-                plcT.Text + ", D: " + wrkStrtDatT.Text + ", B: " + bonT.Text, filePath, lines.GetUpperBound(0) + 1);
+                userAdder("I; " + workerNameT.Text + ", N; " + accNumT.Text + ", S; " +
+                plcT.Text + ", D; " + dateTimePicker1.Value + ", B; " + bonT.Text, filePath, lines.GetUpperBound(0) + 1);
             }
         }
     }

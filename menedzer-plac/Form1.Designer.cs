@@ -35,6 +35,8 @@ namespace menedzer_plac
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.bonT = new System.Windows.Forms.TextBox();
             this.wrkStrtDatT = new System.Windows.Forms.TextBox();
@@ -47,8 +49,7 @@ namespace menedzer_plac
             this.plc = new System.Windows.Forms.Label();
             this.accNum = new System.Windows.Forms.Label();
             this.workerName = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -104,6 +105,7 @@ namespace menedzer_plac
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.dateTimePicker1);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.button1);
@@ -124,6 +126,26 @@ namespace menedzer_plac
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Dane pracownika";
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(6, 221);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(220, 18);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Lub";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button2
+            // 
+            this.button2.Enabled = false;
+            this.button2.Location = new System.Drawing.Point(6, 242);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(220, 23);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "Dodaj nowego pracownika";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -147,10 +169,11 @@ namespace menedzer_plac
             // wrkStrtDatT
             // 
             this.wrkStrtDatT.Enabled = false;
-            this.wrkStrtDatT.Location = new System.Drawing.Point(126, 85);
+            this.wrkStrtDatT.Location = new System.Drawing.Point(9, 169);
             this.wrkStrtDatT.Name = "wrkStrtDatT";
             this.wrkStrtDatT.Size = new System.Drawing.Size(100, 20);
             this.wrkStrtDatT.TabIndex = 9;
+            this.wrkStrtDatT.Visible = false;
             // 
             // plcT
             // 
@@ -237,25 +260,16 @@ namespace menedzer_plac
             this.workerName.TabIndex = 0;
             this.workerName.Text = "Imie pracownika:";
             // 
-            // button2
+            // dateTimePicker1
             // 
-            this.button2.Enabled = false;
-            this.button2.Location = new System.Drawing.Point(6, 242);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(220, 23);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Dodaj nowego pracownika";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // label2
-            // 
-            this.label2.Location = new System.Drawing.Point(6, 221);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(220, 18);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Lub";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePicker1.Enabled = false;
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(126, 82);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(100, 20);
+            this.dateTimePicker1.TabIndex = 9;
+            this.dateTimePicker1.Value = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             // 
             // Form1
             // 
@@ -299,6 +313,7 @@ namespace menedzer_plac
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
 
