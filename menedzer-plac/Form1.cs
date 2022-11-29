@@ -34,23 +34,20 @@ namespace menedzer_plac
                 string fileName;
                 fileName = FileDialog.FileName;
                 Properties.Settings.Default.fullPath = Path.Combine(Directory.GetCurrentDirectory(), fileName);
+                workerNameT.Enabled = true;
+                accNumT.Enabled = true;
+                plcT.Enabled = true;
+                wrkStrtDatT.Enabled = true;
+                bonT.Enabled = true;
+                button1.Enabled = true;
+                button2.Enabled = true;
             }
-
+            workersList.Items.Clear();
             string filePath = Properties.Settings.Default.fullPath;
-            //string ctlName;
-            //Control[] matches;
-            //Control player;
             string[] lines = File.ReadAllLines(filePath);
+            //Array.Resize(ref lines, lines.Length + 1);
             for (int i = 0; i < lines.Length; i++)
             {
-                //player = null;
-                //ctlName = "label" + (i + 1).ToString();
-                //matches = this.Controls.Find(ctlName, true);
-                //if (matches.Length > 0)
-                //{
-                //    player = matches[0];
-                //    player.Text = "";
-                //}
                 if (i < lines.GetUpperBound(0))
                 {
                     string[] parts = lines[i].Split(",".ToCharArray());
@@ -144,6 +141,22 @@ namespace menedzer_plac
             string[] arrLine = File.ReadAllLines(fileName);
             arrLine[line_to_edit - 1] = newText;
             File.WriteAllLines(fileName, arrLine);
+            //string[] txt = new string[1];
+            //txt[1] = "txt";
+            //string[] ar2 = File.AppendAllLines(fileName, txt);
+            //File.AppendAllLines(fileName,ar2);
+            //File.AppendAllText(fileName, "TEXT" + Environment.NewLine);
+        }
+        static void userAdder(string newText, string fileName, int line_to_edit)
+        {
+            string[] arrLine = File.ReadAllLines(fileName);
+            arrLine[line_to_edit - 1] = newText;
+            File.WriteAllLines(fileName, arrLine);
+            //string[] txt = new string[1];
+            //txt[1] = "txt";
+            //string[] ar2 = File.AppendAllLines(fileName, txt);
+            //File.AppendAllLines(fileName,ar2);
+            File.AppendAllText(fileName, "End" + Environment.NewLine);
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -161,9 +174,30 @@ namespace menedzer_plac
                 string[] stan = parts[2].Split(":".ToCharArray());
                 string[] wrkStrt = parts[3].Split(":".ToCharArray());
                 string[] bns = parts[4].Split(":".ToCharArray());
+                lineChanger("I: " + workerNameT.Text + ", N: " + accNumT.Text + ", S: " +
+                plcT.Text + ", D: " + wrkStrtDatT.Text + ", B: " + bonT.Text, filePath, index + 1);
+            }
+        }
 
-                lineChanger("imie: " + workerNameT.Text + ", numer_konta: " + accNumT.Text + ", stanowisko: " +
-                plcT.Text + ", data_dołączenia: " + wrkStrtDatT.Text + ", Bonus: " + bonT.Text, filePath, index + 1);
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //player1.URL = Convert.ToString(workersList.SelectedItem);
+            string filePath = Properties.Settings.Default.fullPath;
+            string[] lines = File.ReadAllLines(filePath);
+            int index = workersList.SelectedIndex;
+            //MessageBox.Show(index.ToString());
+            //workersList.SelectedIndex = index;
+            string[] parts = lines[index].Split(",".ToCharArray());
+            if (parts.Length == 5)
+            {
+                string[] wrkNam = parts[0].Split(":".ToCharArray());
+                string[] acNum = parts[1].Split(":".ToCharArray());
+                string[] stan = parts[2].Split(":".ToCharArray());
+                string[] wrkStrt = parts[3].Split(":".ToCharArray());
+                string[] bns = parts[4].Split(":".ToCharArray());
+
+                userAdder("I: " + workerNameT.Text + ", N: " + accNumT.Text + ", S: " +
+                plcT.Text + ", D: " + wrkStrtDatT.Text + ", B: " + bonT.Text, filePath, lines.GetUpperBound(0) + 1);
             }
         }
     }
