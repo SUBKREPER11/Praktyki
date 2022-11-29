@@ -11,6 +11,7 @@ namespace menedzer_plac
         /// <summary>
         /// Główny punkt wejścia dla aplikacji.
         /// </summary>
+        /// 
         [STAThread]
         static void Main()
         {
