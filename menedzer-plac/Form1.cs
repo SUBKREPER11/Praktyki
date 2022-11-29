@@ -175,6 +175,10 @@ namespace menedzer_plac
                 string[] bns = parts[4].Split(";".ToCharArray());
                 lineChanger("I; " + workerNameT.Text + ", N; " + accNumT.Text + ", S; " +
                 plcT.Text + ", D; " + dateTimePicker1.Value + ", B; " + bonT.Text, filePath, index + 1);
+                //workersList.Items.RemoveAt(index);
+                workersList.Items.Insert(index, workerNameT.Text);
+                workersList.SelectedIndex = index;
+                workersList.Items.RemoveAt(index + 1);
             }
         }
 
@@ -186,7 +190,7 @@ namespace menedzer_plac
             int index = workersList.SelectedIndex;
             //MessageBox.Show(index.ToString());
             //workersList.SelectedIndex = index;
-            MessageBox.Show(lines.GetUpperBound(0).ToString());
+            //MessageBox.Show(lines.GetUpperBound(0).ToString());
             int var;
             if (index < 0)
                 var = 0;
@@ -203,6 +207,8 @@ namespace menedzer_plac
 
                 userAdder("I; " + workerNameT.Text + ", N; " + accNumT.Text + ", S; " +
                 plcT.Text + ", D; " + dateTimePicker1.Value + ", B; " + bonT.Text, filePath, lines.GetUpperBound(0) + 1);
+                workersList.Items.Add(workerNameT.Text);
+                workersList.SelectedIndex = lines.GetUpperBound(0);
             }
         }
     }
