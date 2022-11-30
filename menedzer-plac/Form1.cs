@@ -32,9 +32,13 @@ namespace menedzer_plac
                 plcT.Enabled = true;
                 //wrkStrtDatT.Enabled = true;
                 bonT.Enabled = true;
-                button1.Enabled = true;
+                //button1.Enabled = true;
                 button2.Enabled = true;
                 dateTimePicker1.Enabled = true;
+                if (workersList.SelectedIndex < 0)
+                    button1.Enabled = false;
+                else
+                    button1.Enabled = true;
             }
             //workersList.Items.Clear();
             string filePath = Properties.Settings.Default.fullPath;
@@ -70,6 +74,10 @@ namespace menedzer_plac
                 var = 0;
             else
                 var = index;
+            if (workersList.SelectedIndex < 0)
+                button1.Enabled = false;
+            else
+                button1.Enabled = true;
             //MessageBox.Show(index.ToString());
             string[] parts = lines[var].Split(",".ToCharArray());
             if (parts.Length == 5)
