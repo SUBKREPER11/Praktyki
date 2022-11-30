@@ -116,13 +116,13 @@ namespace menedzer_plac
                 int yrs = (zeroTime + span).Year - 1;
                 //MessageBox.Show(yrs.ToString());
                 int stVal;
-                if (stan[1].Trim() == "St1")
+                if (stan[1].Trim() == "St1" || stan[1].Trim() == "st1" || stan[1].Trim() == "sT1" || stan[1].Trim() == "ST1")
                     stVal = 100;
-                else if (stan[1].Trim() == "St2")
+                else if (stan[1].Trim() == "St2" || stan[1].Trim() == "st2" || stan[1].Trim() == "sT2" || stan[1].Trim() == "ST2")
                     stVal = 200;
-                else if (stan[1].Trim() == "St3")
+                else if (stan[1].Trim() == "St3" || stan[1].Trim() == "st3" || stan[1].Trim() == "sT3" || stan[1].Trim() == "ST3")
                     stVal = 300;
-                else if (stan[1].Trim() == "St4")
+                else if (stan[1].Trim() == "St4" || stan[1].Trim() == "st4" || stan[1].Trim() == "sT4" || stan[1].Trim() == "ST4")
                     stVal = 400;
                 else
                     stVal = 50;
