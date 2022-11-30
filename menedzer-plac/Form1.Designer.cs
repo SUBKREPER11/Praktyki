@@ -35,11 +35,11 @@ namespace menedzer_plac
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.bonT = new System.Windows.Forms.TextBox();
-            this.wrkStrtDatT = new System.Windows.Forms.TextBox();
             this.plcT = new System.Windows.Forms.TextBox();
             this.accNumT = new System.Windows.Forms.TextBox();
             this.workerNameT = new System.Windows.Forms.TextBox();
@@ -49,7 +49,6 @@ namespace menedzer_plac
             this.plc = new System.Windows.Forms.Label();
             this.accNum = new System.Windows.Forms.Label();
             this.workerName = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -110,7 +109,6 @@ namespace menedzer_plac
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.bonT);
-            this.groupBox2.Controls.Add(this.wrkStrtDatT);
             this.groupBox2.Controls.Add(this.plcT);
             this.groupBox2.Controls.Add(this.accNumT);
             this.groupBox2.Controls.Add(this.workerNameT);
@@ -126,6 +124,17 @@ namespace menedzer_plac
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Dane pracownika";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePicker1.Enabled = false;
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(126, 82);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(100, 20);
+            this.dateTimePicker1.TabIndex = 9;
+            this.dateTimePicker1.Value = new System.DateTime(2022, 11, 30, 0, 0, 0, 0);
             // 
             // label2
             // 
@@ -165,15 +174,6 @@ namespace menedzer_plac
             this.bonT.Name = "bonT";
             this.bonT.Size = new System.Drawing.Size(100, 20);
             this.bonT.TabIndex = 10;
-            // 
-            // wrkStrtDatT
-            // 
-            this.wrkStrtDatT.Enabled = false;
-            this.wrkStrtDatT.Location = new System.Drawing.Point(9, 169);
-            this.wrkStrtDatT.Name = "wrkStrtDatT";
-            this.wrkStrtDatT.Size = new System.Drawing.Size(100, 20);
-            this.wrkStrtDatT.TabIndex = 9;
-            this.wrkStrtDatT.Visible = false;
             // 
             // plcT
             // 
@@ -260,17 +260,6 @@ namespace menedzer_plac
             this.workerName.TabIndex = 0;
             this.workerName.Text = "Imie pracownika:";
             // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker1.Enabled = false;
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(126, 82);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(100, 20);
-            this.dateTimePicker1.TabIndex = 9;
-            this.dateTimePicker1.Value = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -306,7 +295,6 @@ namespace menedzer_plac
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox bonT;
-        private System.Windows.Forms.TextBox wrkStrtDatT;
         private System.Windows.Forms.TextBox plcT;
         private System.Windows.Forms.TextBox accNumT;
         private System.Windows.Forms.TextBox workerNameT;
