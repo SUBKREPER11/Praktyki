@@ -76,13 +76,13 @@ namespace menedzer_plac
             int yrs = (zeroTime + span).Year - 1;
             //MessageBox.Show(yrs.ToString());
             int stVal;
-            if (plcT.Text == "St1" || plcT.Text == "st1" || plcT.Text == "sT1" || plcT.Text == "ST1")
+            if (plcT.Text.ToLower() == "st1")
                 stVal = 100;
-            else if (plcT.Text == "St2" || plcT.Text == "st2" || plcT.Text == "sT2" || plcT.Text == "ST2")
+            else if (plcT.Text.ToLower() == "st2")
                 stVal = 200;
-            else if (plcT.Text == "St3" || plcT.Text == "st3" || plcT.Text == "sT3" || plcT.Text == "ST3")
+            else if (plcT.Text.ToLower() == "st3")
                 stVal = 300;
-            else if (plcT.Text == "St4" || plcT.Text == "st4" || plcT.Text == "sT4" || plcT.Text == "ST4")
+            else if (plcT.Text.ToLower() == "st4")
                 stVal = 400;
             else
                 stVal = 50;
@@ -100,6 +100,7 @@ namespace menedzer_plac
                 workersList.SelectedIndex = i;
             else
                 MessageBox.Show("Nie znaleziono osoby o nazwie: " + textBox1.Text);
+
         }
 
 
