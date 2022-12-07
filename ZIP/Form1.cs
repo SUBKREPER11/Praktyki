@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.IO.Compression;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using Ionic.Zip;
 using Microsoft.WindowsAPICodePack.Dialogs;
+using System;
+using System.IO;
+//using System.IO.Compression;
+using System.Windows.Forms;
 
 namespace ZIP
 {
@@ -18,43 +12,41 @@ namespace ZIP
         public Form1()
         {
             InitializeComponent();
+            textBox1.UseSystemPasswordChar = true;
         }
         string start = @"C:\Praktyki\P_Data";
         string zip = @"C:\Praktyki\zip.zip";
         //string end = @"C:\Praktyki\end";
-
+        CommonOpenFileDialog fileDialog = new CommonOpenFileDialog();
+        OpenFileDialog fileDialog2 = new OpenFileDialog();
         private void button3_Click(object sender, EventArgs e)
         {
-            if(checkBox1.Checked == false)
+            if (checkBox1.Checked == false)
             {
-                CommonOpenFileDialog fileDialog = new CommonOpenFileDialog();
                 fileDialog.InitialDirectory = @"C:\\";
                 fileDialog.IsFolderPicker = true;
                 if (fileDialog.ShowDialog() == CommonFileDialogResult.Ok)
                 {
-                    //MessageBox.Show("You selected: " + fileDialog.FileName);
-                    //string fileName;
-                    //fileName = fileDialog.FileName;
-                    string location = @fileDialog.FileName;
-                    if (File.Exists(location + ".zip"))
-                        File.Delete(location + ".zip");
-                    ZipFile.CreateFromDirectory(location, location + ".zip");
+                    button1.Enabled = true;
                 }
             }
             else
             {
-                OpenFileDialog fileDialog = new OpenFileDialog();
-                fileDialog.Title = "Select File!";
-                fileDialog.InitialDirectory = @"c:\\";
-                fileDialog.Filter = "zip files (*.zip)|*.zip";
-                if (fileDialog.ShowDialog() == DialogResult.OK)
+                fileDialog2.Title = "Select File!";
+                fileDialog2.InitialDirectory = @"c:\\";
+                fileDialog2.Filter = "zip files (*.zip)|*.zip";
+                if (fileDialog2.ShowDialog() == DialogResult.OK)
                 {
-                    //MessageBox.Show("Extract function");
-                    FileInfo fi = new FileInfo(fileDialog.FileName);
-                    string direc = fi.DirectoryName;
-                    direc += @"\extracted "+fi.Name;
-                    ZipFile.ExtractToDirectory(fileDialog.FileName, direc);
-                    MessageBox.Show("Extracted to: " + direc);
+                    button1.Enabled = true;
+
+                    if (Ionic.Zip.ZipFile.CheckZipPassword(fileDialog2.FileName, ""))
+                    {
+                        label1.Visible = false;
+                    }
+                    else
+                    {
+                        label1.Visible = true;
+                    }
                 }
             }
         }
@@ -62,9 +54,58 @@ namespace ZIP
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1.Checked == false)
-                button3.Text = "Open";
+            {
+                button3.Text = "Select folder 📁";
+                button1.Text = "Zip";
+            }
             else
-                button3.Text = "Extract";
+            {
+                button3.Text = "Select file 🗎";
+                button1.Text = "Unzip";
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked == false)
+            {
+                string location = @fileDialog.FileName;
+                using (ZipFile zip = new ZipFile())
+                {
+                    if (textBox1.TextLength > 0)
+                    {
+                        zip.Password = textBox1.Text;
+                        zip.AddDirectory(location);
+                        zip.Save(location + ".zip");
+                    }
+                    else
+                    {
+                        zip.AddDirectory(location);
+                        zip.Save(location + ".zip");
+                    }
+                    MessageBox.Show("Zipped");
+                }
+            }
+            else
+            {
+                //MessageBox.Show("Extract function");
+                FileInfo fi = new FileInfo(fileDialog2.FileName);
+                string direc = fi.DirectoryName;
+                direc += @"\extracted " + fi.Name;
+                //ZipFile.ExtractToDirectory(fileDialog.FileName, direc);
+                using (ZipFile zip = ZipFile.Read(fileDialog2.FileName))
+                {
+                    //zip.Password = textBox1.Text;
+                    if (Ionic.Zip.ZipFile.CheckZipPassword(fileDialog2.FileName, textBox1.Text))
+                    {
+                        zip.Password = textBox1.Text;
+                        zip.ExtractAll(direc);
+                        MessageBox.Show("Extracted to: " + direc);
+                    }
+                    else
+                        MessageBox.Show("Błędne chasło. Spróbuj ponownie");
+                }
+            }
         }
     }
 }
