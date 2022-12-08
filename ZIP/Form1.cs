@@ -53,6 +53,7 @@ namespace ZIP
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
+            textBox1.Text = "";
             if (checkBox1.Checked == false)
             {
                 button3.Text = "Select folder 📁";
