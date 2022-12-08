@@ -99,7 +99,7 @@ namespace ZIP
                     if (Ionic.Zip.ZipFile.CheckZipPassword(fileDialog2.FileName, textBox1.Text))
                     {
                         zip.Password = textBox1.Text;
-                        zip.ExtractAll(direc);
+                        zip.ExtractAll(direc,ExtractExistingFileAction.OverwriteSilently);
                         MessageBox.Show("Extracted to: " + direc);
                     }
                     else
